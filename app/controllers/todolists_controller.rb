@@ -4,7 +4,7 @@ class TodolistsController < ApplicationController
   end
 
   def create
-    # データを新規登録するためのインスタンス作成
+    # データを新規登録するためのインスタンス作成　ストロングパラメータからデータを取得
     list = List.new(list_params)
     # データをデータベースに保存するためのsaveメソッド実行
     list.save
@@ -18,11 +18,20 @@ class TodolistsController < ApplicationController
   end
 
   def show
-    # URL内のidをコントローラで受け取る
+    # 対象のデータをURL内のidから取得する
     @list = List.find(params[:id])
   end
   
-  def 
+  def edit
+    @list = List.find(params[:id])
+  end
+  
+  def update
+    list = List.find(params[:id])
+    # 編集したデータの更新
+    list.update(list_params)
+    redirect_to todolist_path(list.id)
+  end
   # private ここから下はcontrollerの中でしか呼び出せない
   private
   # ストロングパラメータ
