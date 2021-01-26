@@ -21,6 +21,8 @@ class TodolistsController < ApplicationController
     # URL内のidをコントローラで受け取る
     @list = List.find(params[:id])
   end
+  
+  def 
   # private ここから下はcontrollerの中でしか呼び出せない
   private
   # ストロングパラメータ
