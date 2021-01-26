@@ -8,11 +8,19 @@ class TodolistsController < ApplicationController
     list = List.new(list_params)
     # データをデータベースに保存するためのsaveメソッド実行
     list.save
-    # トップ画面へリダイレクト
-    redirect_to '/top'
+    # 詳細画面へリダイレクト
+    redirect_to todolist_path(list.id)
   end
-  
-  def 
+
+  def index
+    # 全ての投稿を取り出して表示
+    @list = List.all
+  end
+
+  def show
+    # URL内のidをコントローラで受け取る
+    @list = List.find(params[:id])
+  end
   # private ここから下はcontrollerの中でしか呼び出せない
   private
   # ストロングパラメータ
