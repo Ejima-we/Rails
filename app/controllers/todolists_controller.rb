@@ -32,6 +32,8 @@ class TodolistsController < ApplicationController
     list.update(list_params)
     redirect_to todolist_path(list.id)
   end
+  
+  defgit
   # private ここから下はcontrollerの中でしか呼び出せない
   private
   # ストロングパラメータ
