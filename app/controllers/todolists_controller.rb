@@ -33,7 +33,12 @@ class TodolistsController < ApplicationController
     redirect_to todolist_path(list.id)
   end
   
-  defgit
+  def destroy
+    list = List.find(params[:id])
+    list.destroy
+    # 投稿一覧画面へリダイレクト
+    redirect_to todolists_path
+  end
   # private ここから下はcontrollerの中でしか呼び出せない
   private
   # ストロングパラメータ
