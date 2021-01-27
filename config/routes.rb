@@ -9,5 +9,6 @@ Rails.application.routes.draw do
   get "todolists/:id/edit" =>"todolists#edit", as: "edit_todolist"
   # patchは既存データがある場合に使用
   patch "todolists/:id" => "todolists#update", as: "update_todolist"
+  delete
 end
 
